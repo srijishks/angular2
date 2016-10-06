@@ -2,11 +2,16 @@
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.16.
 
-#Insall
+#Insatll
 npm install
 
 #Run
-ng serve
+npm start
 
 #Run in port 4200
 http://localhost:4200/
+
+
+#misc
+	#create new component
+		ng generate component home
