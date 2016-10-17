@@ -13,5 +13,7 @@ http://localhost:4200/
 
 
 #misc
-	#create new component
-		ng generate component home
+	#create new Component		ng generate component home
+
+    #create new Service			ng g service login
+    
