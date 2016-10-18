@@ -1,0 +1,38 @@
+<div class="container">
+
+      <form class="form-signin" #f="ngForm" (ngSubmit) = "loginFormSubmit(f.value)">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <div class="form-group">
+	        <label for="inputEmail" class="sr-only">Email address</label>
+	        <input 
+	        type="email" 
+	        name="email" 
+	        [(ngModel)] ="data.email"  
+	        class="form-control" 
+	        placeholder="Email address" 
+	        required autofocus >
+        </div>
+        <div class="form-group">
+	        <label for="inputPassword" class="sr-only">Password</label>
+	        <input 
+	        type="password" 
+	        name="password" 
+	        [(ngModel)]="data.password"  
+	        class="form-control" 
+	        placeholder="Password" 
+	        required >
+        </div>
+
+        <div class="checkbox">
+          <label>
+            <input 
+            type="checkbox"  
+            name="remember"  
+            [(ngModel)]="data.remember" 
+            value="remember-me"> Remember me
+          </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      </form>
+
+    </div> <!-- /container -->
