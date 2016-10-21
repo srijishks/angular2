@@ -21,12 +21,15 @@ export class LoginComponent implements OnInit {
   }
 
   loginFormSubmit(form: any): void {  
-    let email = 'srijishks@gmail.com';
-    let password = 'qwer';
+    let email = form.email;
+    let password = form.password;
     this._loginservice.makeLogin(email, password )
     .subscribe(
-      data => this.getData = data,
-      error => alert('error'),
+      data => {
+        this.getData = data;
+        localStorage.setItem('authData',JSON.stringify(data.params));
+      },
+      error => alert('error in callin APi'),
       () => console.log("just finished")
       );
     console.log('you submitted value:', form);  

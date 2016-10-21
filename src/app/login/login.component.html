@@ -1,4 +1,7 @@
 <div class="container">
+<div class="alert alert-success" *ngIf="getData">
+  <strong>Success!</strong> your are logged in as {{getData.params.firstName}}
+</div>
 
       <form class="form-signin" #f="ngForm" (ngSubmit) = "loginFormSubmit(f.value)">
         <h2 class="form-signin-heading">Please sign in</h2>
@@ -23,7 +26,7 @@
 	        required >
         </div>
 
-        <div class="checkbox">
+        <!--<div class="checkbox">
           <label>
             <input 
             type="checkbox"  
@@ -31,8 +34,9 @@
             [(ngModel)]="remember" 
             value="remember-me"> Remember me
           </label>
-        </div>
+        </div>-->
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
       </form>
+     
 
     </div> <!-- /container -->
