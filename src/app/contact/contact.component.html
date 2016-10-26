@@ -2,7 +2,7 @@
 <p>
   {{title}}
 </p>
-
+<div class="container">
 <form [formGroup]="contactForm" (ngSubmit)="doSubmit(contactForm.value)">
     <div class="form-group">
 	 <label for="name">Name:</label>
@@ -44,6 +44,6 @@
 
   <button type="submit" class="btn btn-primary" [disabled]="!contactForm.valid">Submit</button>
 </form>
-
+</div>
 
 	

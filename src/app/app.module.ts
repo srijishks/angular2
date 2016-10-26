@@ -11,6 +11,7 @@ import { MainmenuComponent } from './mainmenu/mainmenu.component';
 import { LoginComponent } from './login/login.component';
 
 import { ContactService } from './service/contact.service';
+import { LoginService } from './service/login.service';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { ContactService } from './service/contact.service';
     ReactiveFormsModule
   ],
   providers: [
-    ContactService
+    ContactService,
+    LoginService
   ],
   bootstrap: [AppComponent]
 })

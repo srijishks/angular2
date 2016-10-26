@@ -3,27 +3,35 @@
   <strong>Success!</strong> your are logged in as {{getData.params.firstName}}
 </div>
 
-      <form class="form-signin" #f="ngForm" (ngSubmit) = "loginFormSubmit(f.value)">
+      <form class="form-signin" [formGroup]="loginForm" novalidate="" (ngSubmit) = "loginFormSubmit($event)">
         <h2 class="form-signin-heading">Please sign in</h2>
         <div class="form-group">
 	        <label for="inputEmail" class="sr-only">Email address</label>
 	        <input 
 	        type="email" 
 	        name="email" 
-	        [(ngModel)] ="email"  
 	        class="form-control" 
 	        placeholder="Email address" 
-	        required autofocus >
+	        autofocus [formControl]="loginForm.controls['email']"
+          >
+
+          <div *ngIf="loginForm.controls['email'].hasError('required') && loginForm.controls['email'].touched" class="alert alert-danger">Enter your email.</div>
+
+            <div *ngIf="loginForm.controls['email'].hasError('pattern') && loginForm.controls['email'].touched && !loginForm.controls['email'].hasError('required')" class="alert alert-danger">Please enter an email.</div>
+     
+
         </div>
         <div class="form-group">
 	        <label for="inputPassword" class="sr-only">Password</label>
 	        <input 
 	        type="password" 
 	        name="password" 
-	        [(ngModel)]="password"  
 	        class="form-control" 
 	        placeholder="Password" 
-	        required >
+	        [formControl]="loginForm.controls['password']" 
+          >
+          <div *ngIf="loginForm.controls['password'].hasError('required') && loginForm.controls['password'].touched" class="alert alert-danger">Enter your password.</div>
+
         </div>
 
         <!--<div class="checkbox">
@@ -35,7 +43,7 @@
             value="remember-me"> Remember me
           </label>
         </div>-->
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="!loginForm.valid">Sign in</button>
       </form>
      
 
