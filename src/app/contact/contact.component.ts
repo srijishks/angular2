@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
+import {Contact} from './contact';
 
 @Component({
   selector: 'app-contact',
@@ -6,12 +9,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent implements OnInit {
+  contactForm : FormGroup;
+  authenticated: boolean
+  profile : Object;
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(fb: FormBuilder){
+    if(localStorage.getItem('jwt')){
+      this.authenticated = true;
+      this.profile = JSON.parse(localStorage.getItem('profile'));
+    }
+    this.contactForm = fb.group({
+      'name' : [null, Validators.required],
+      'email': [null, Validators.required],
+      'comment': [null, Validators.required]
+    })
   }
 
-  title = 'This is conact page!';
+
+    ngOnInit() {
+     }
+
+
+  title = 'Contact us';
 
 }
+
+
