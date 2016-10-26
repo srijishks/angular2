@@ -3,7 +3,7 @@
   <strong>Success!</strong> your are logged in as {{getData.params.firstName}}
 </div>
 
-      <form class="form-signin" [formGroup]="loginForm" novalidate="" (ngSubmit) = "loginFormSubmit($event)">
+      <form class="form-signin" [formGroup]="loginForm" novalidate="" (ngSubmit) = "loginFormSubmit(loginForm.value)">
         <h2 class="form-signin-heading">Please sign in</h2>
         <div class="form-group">
 	        <label for="inputEmail" class="sr-only">Email address</label>

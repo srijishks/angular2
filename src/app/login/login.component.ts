@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   getData: String;
   email:String;
   password:String;
+  form:Object;
 
   constructor(private _loginservice : LoginService, fb: FormBuilder) {
     let emailRegex = `([a-zA-Z0-9_.]{1}[a-zA-Z0-9_.]*)((@[a-zA-Z]{2}[a-zA-Z]*)[\\\.]([a-zA-Z]{2}|[a-zA-Z]{3}))`;
@@ -28,10 +29,15 @@ export class LoginComponent implements OnInit {
 
   }
 
-  loginFormSubmit(form: any): void {  
-    let email = form.email;
-    let password = form.password;
-    this._loginservice.makeLogin(email, password )
+  loginFormSubmit(value: any){
+    console.log(value);
+    if(!value)
+       return;
+    let form = {
+      'email' : value.email,
+      'password' : value.password
+    };
+    this._loginservice.makeLogin(form)
     .subscribe(
       data => {
         this.getData = data;

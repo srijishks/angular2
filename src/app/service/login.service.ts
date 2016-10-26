@@ -7,11 +7,11 @@ import 'rxjs/Rx';
 export class LoginService {
 
   constructor(private http:Http) { }
-  	makeLogin(email:String,  password:String){
+  	makeLogin(form:Object){
   		let body = {
               "params": {
-                email: email,
-                password: password
+                email: "email",
+                password: "password"
               },
               "function": "login"
             };
