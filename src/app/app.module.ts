@@ -10,6 +10,9 @@ import { HomeComponent } from './home/home.component';
 import { MainmenuComponent } from './mainmenu/mainmenu.component';
 import { LoginComponent } from './login/login.component';
 
+import { ContactService } from './service/contact.service';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +28,9 @@ import { LoginComponent } from './login/login.component';
     routing,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    ContactService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

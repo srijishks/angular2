@@ -4,14 +4,6 @@
 </p>
 
 <form [formGroup]="contactForm" (ngSubmit)="doSubmit(contactForm.value)">
-
-<!--<div class="form-group" [ngClass]="{'has-error':!contactForm.controls['name'].valid && contactForm.controls['name'].touched}">
-        <label>Email:</label>
-        <input class="form-control" type="text" placeholder="John@doe.com" [formControl]="contactForm.controls['name']">
-        <div *ngIf="contactForm.controls['name'].hasError('required') && contactForm.controls['name'].touched" class="alert alert-danger">You must add an name.</div>
-      </div> -->
-
-
     <div class="form-group">
 	 <label for="name">Name:</label>
 	 <input 
