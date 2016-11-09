@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from '../../environments/environment';
 // import { MainmenuComponent } from './mainmenu/mainmenu.component';
 
 declare var Richeditor: any;
@@ -12,20 +13,20 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-
+    console.log(environment.API_BASE_URL);
   	var editor = new Richeditor('#editor', {
     uploader: {
-        url: '../data/upload.php?action=upload',
-        process: function (resp) {
-            resp.baseurl = './data/user/files/';
+        url: environment.API_BASE_URL+'/upload.php?action=upload',
+        process: (resp)  => {
+            resp.baseurl = environment.API_BASE_URL+'/user/files/';
             return resp;
         }
     },
     filebrowser: {
         ajax: {
-            url: '../data/upload.php',
-            process: function (resp) {
-                resp.baseurl = './data/user/files/';
+            url: environment.API_BASE_URL+'/upload.php',
+            process: (resp) => {
+                resp.baseurl = environment.API_BASE_URL+'/user/files/';
                 return resp;
             },
        	 }
