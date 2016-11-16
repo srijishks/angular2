@@ -6,14 +6,13 @@ import { environment } from '../../environments/environment';
 
 @Injectable()
 export class LoginService {
-
+  form:Object;
   constructor(private http:Http) { }
-  	makeLogin(form:Object){
-  		
-      let body = {
+  	makeLogin(form: any){
+  		let body = {
               "params": {
-                email: "email",
-                password: "password"
+                email: form.email,
+                password: form.password
               },
               "function": "login"
             };

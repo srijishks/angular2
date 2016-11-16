@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   email:String;
   password:String;
   form:Object;
+  msg:Boolean;
 
   constructor(private _loginservice : LoginService, fb: FormBuilder) {
     let emailRegex = `([a-zA-Z0-9_.]{1}[a-zA-Z0-9_.]*)((@[a-zA-Z]{2}[a-zA-Z]*)[\\\.]([a-zA-Z]{2}|[a-zA-Z]{3}))`;
@@ -30,23 +31,30 @@ export class LoginComponent implements OnInit {
   }
 
   loginFormSubmit(value: any){
-    console.log(value);
+    // console.log(value);
     if(!value)
        return;
     let form = {
-      'email' : value.email,
-      'password' : value.password
+      email : value.email,
+      password : value.password
     };
     this._loginservice.makeLogin(form)
     .subscribe(
       data => {
-        this.getData = data;
-        localStorage.setItem('authData',JSON.stringify(data.params));
+        // console.log(data.result[0]);
+        if(data.result!=null){
+          this.getData = data.result[0];        
+          localStorage.setItem('authData',JSON.stringify(data.result[0]));
+          this.msg = true;
+        }else{
+          this.msg = false;
+        }
+        
       },
       error => alert('error in callin APi'),
-      () => console.log("just finished")
+      () => console.log("just finished api call")
       );
-    console.log('you submitted value:', form);  
+    // console.log('you submitted value:', form);  
     
   }
 

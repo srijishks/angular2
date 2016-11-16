@@ -1,6 +1,9 @@
 <div class="container">
-<div class="alert alert-success" *ngIf="getData">
-  <strong>Success!</strong> your are logged in as {{getData.params.firstName}}
+<div class="alert alert-success" *ngIf="msg==true">
+  <strong>Success!</strong> your are logged in as {{getData.firstname}}
+</div>
+<div class="alert alert-warning" *ngIf="msg==false">
+  <strong>Please try again!</strong> 
 </div>
 
       <form class="form-signin" [formGroup]="loginForm" novalidate="" (ngSubmit) = "loginFormSubmit(loginForm.value)">
