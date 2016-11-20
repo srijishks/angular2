@@ -16,17 +16,17 @@ export class HomeComponent implements OnInit {
     console.log(environment.API_BASE_URL);
   	var editor = new Richeditor('#editor', {
     uploader: {
-        url: environment.API_BASE_URL+'/upload.php?action=upload',
+        url: 'http://localhost/noteit class/fileupload.php',
         process: (resp)  => {
-            resp.baseurl = environment.API_BASE_URL+'/user/files/';
+            resp.baseurl = 'http://localhost/noteit class/fileupload.php';
             return resp;
         }
     },
     filebrowser: {
         ajax: {
-            url: environment.API_BASE_URL+'/upload.php',
+            url: 'http://localhost/noteit class/fileupload.php',
             process: (resp) => {
-                resp.baseurl = environment.API_BASE_URL+'/user/files/';
+                resp.baseurl = 'http://localhost/noteit class/fileupload.php';
                 return resp;
             },
        	 }
