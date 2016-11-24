@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  API_BASE_URL: "http://sreejish.com/api/"
+  API_BASE_URL: "http://localhost/noteit class/"
 };

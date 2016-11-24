@@ -12,7 +12,7 @@ import { LoginComponent } from './login/login.component';
 
 import { ContactService } from './service/contact.service';
 import { LoginService } from './service/login.service';
-
+import { HomeService } from './service/home.service';
 
 
 @NgModule({
@@ -32,7 +32,8 @@ import { LoginService } from './service/login.service';
   ],
   providers: [
     ContactService,
-    LoginService
+    LoginService,
+    HomeService
   ],
   bootstrap: [AppComponent]
 })
