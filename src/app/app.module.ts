@@ -13,6 +13,7 @@ import { LoginComponent } from './login/login.component';
 import { ContactService } from './service/contact.service';
 import { LoginService } from './service/login.service';
 import { HomeService } from './service/home.service';
+import { NotelistComponent } from './notelist/notelist.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { HomeService } from './service/home.service';
     ContactComponent,
     HomeComponent,
     MainmenuComponent,
-    LoginComponent
+    LoginComponent,
+    NotelistComponent
   ],
   imports: [
     BrowserModule,
