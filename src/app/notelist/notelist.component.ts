@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { NoteService }  from '../service/note.service';
 
 @Component({
   selector: 'app-notelist',
@@ -6,10 +8,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./notelist.component.css']
 })
 export class NotelistComponent implements OnInit {
-
-  constructor() { }
+	getNoteData:any;
+	msg:Boolean;
+	processedHtml:any;
+  constructor(private _noteservice : NoteService) { }
 
   ngOnInit() {
+  	 let authData = localStorage.getItem('authData');
+  	 if(authData!=undefined)
+	  	 this._noteservice.getNote(authData)
+	    .subscribe(
+	      data => {
+	        this.getNoteData = data.result; 
+	        console.log(data);
+	        this.msg = data.status;
+
+	      },
+	      error => alert('error in callin APi'),
+	      () => console.log("just finished api call")
+	      );
   }
 
 }

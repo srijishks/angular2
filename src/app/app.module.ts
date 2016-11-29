@@ -13,7 +13,9 @@ import { LoginComponent } from './login/login.component';
 import { ContactService } from './service/contact.service';
 import { LoginService } from './service/login.service';
 import { HomeService } from './service/home.service';
+import { NoteService } from './service/note.service';
 import { NotelistComponent } from './notelist/notelist.component';
+import { StriptagsPipe } from './pipe/striptags.pipe';
 
 
 @NgModule({
@@ -23,7 +25,8 @@ import { NotelistComponent } from './notelist/notelist.component';
     HomeComponent,
     MainmenuComponent,
     LoginComponent,
-    NotelistComponent
+    NotelistComponent,
+    StriptagsPipe
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,8 @@ import { NotelistComponent } from './notelist/notelist.component';
   providers: [
     ContactService,
     LoginService,
-    HomeService
+    HomeService,
+    NoteService
   ],
   bootstrap: [AppComponent]
 })

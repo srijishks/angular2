@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, Renderer, ViewChild, trigger, state, animate, transition, style } from '@angular/core';
+import { Component, OnInit, ElementRef, Renderer, ViewChild} from '@angular/core';
 import { environment } from '../../environments/environment';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { HomeService }  from '../service/home.service';
@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit {
   getData:any;
   msg:Boolean;
   show:boolean = false;
+  getNoteData:string;
   @ViewChild('textareaWrapper') changedata:ElementRef;
   constructor(private _homeservice : HomeService) { }
 
@@ -65,9 +66,9 @@ Submited(value: any){
    this._homeservice.SaveNote(processedHtml)
     .subscribe(
       data => {
-        this.getData = data.result; 
+        this.getData = data.result;; 
         this.msg = data.status;
-
+        this.getNoteData = '{"status":1,"result":[{"id":"1","notedata":"2","userid":"1","created_on":"2016-11-24 00:00:00"}]}';
       },
       error => alert('error in callin APi'),
       () => console.log("just finished api call")
